@@ -58,11 +58,22 @@ function func(param) {
 function sortDirection() {
   var newArr = [];
   
-  for(var i=0;i<=acctData.length;i++){
-    newArr.push(acctData[i]);
-  };
-  console.log(newArr);
+ acctData.forEach(function(item){
+  Object.keys(balance).forEach(function (data) {
+//	console.log(item); // key
+//	console.log(balance[item]); // value
+if(data == item.acctNum){
+      newArr.push({
+    acctNum : item.acctNum,
+    user: item.user,
+    balance: balance[data]
+  })
 }
+  
+});
+    
+    });
+  console.log(JSON.stringify(newArr))};
 func("user");
 func("sort_by(acctNum)");
 func("sort_by(balance)");
